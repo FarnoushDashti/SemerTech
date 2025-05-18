@@ -9,14 +9,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import axios from 'axios'
 import ProductCard from '~/components/ProductCard.vue'
 import Header from '~/components/Header.vue'
 
 const products = ref([])
 
 onMounted(async () => {
-  const res = await fetch('https://fakestoreapi.com/products')
-  products.value = await res.json()
+  const res = await axios.get('https://fakestoreapi.com/products')
+  products.value = res.data
 })
 </script>
 

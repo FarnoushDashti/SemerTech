@@ -14,14 +14,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import axios from 'axios'
 import Header from '~/components/Header.vue'
 
 const route = useRoute()
 const product = ref(null)
 
 onMounted(async () => {
-  const res = await fetch(`https://fakestoreapi.com/products/${route.params.id}`)
-  product.value = await res.json()
+  const res = await axios.get(`https://fakestoreapi.com/products/${route.params.id}`)
+  product.value = res.data
 })
 </script>
 
