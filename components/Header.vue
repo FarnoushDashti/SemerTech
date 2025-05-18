@@ -1,7 +1,7 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <NuxtLink to="/products" class="logo">فروشگاه من</NuxtLink>
+  <header class="bg-white border-b border-gray-200 py-3 mb-6">
+    <div class="container mx-auto px-4">
+      <NuxtLink to="/products" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">فروشگاه من</NuxtLink>
     </div>
   </header>
 </template>
