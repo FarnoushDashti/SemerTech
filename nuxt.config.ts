@@ -10,4 +10,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  modules: [
+    // 'unplugin-icons/nuxt',
+  ],
 })

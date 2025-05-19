@@ -7,7 +7,10 @@ module.exports = {
     './app.vue'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+      },
+    },
   },
   plugins: [
     require('tailwindcss-rtl'),

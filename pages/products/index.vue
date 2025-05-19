@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-[#f5f6fa] min-h-screen font-sans flex flex-col min-h-screen">
-    <div class="container mx-auto px-2 md:px-4 py-6 flex flex-col lg:flex-row gap-6 flex-1">
+  <div class="bg-slate-200 min-h-screen font-sans flex flex-col min-h-screen">
+    <div class="container mx-auto md:px-4 py-6 flex flex-col lg:flex-row gap-2 flex-1">
       <!-- Sidebar Filters -->
       <FiltersPanel
         :search="search"
@@ -9,18 +9,17 @@
         :categories="categories"
         :categoryLabels="categoryLabels"
         :categoryCounts="categoryCounts"
-        @update:search="search = $event"
-        @update:selectedCategories="selectedCategories = $event"
-        @update:sort="sort = $event"
+        @update:search="onSearchChange"
+        @update:selectedCategories="onCategoryChange"
+        @update:sort="onSortChange"
       />
-      <!-- خط نقطه‌چین وسط -->
       <div class="hidden lg:block w-px bg-[repeating-linear-gradient(180deg,#e5e7eb_0_4px,transparent_4px_12px)] mx-4"></div>
       <!-- Product List -->
       <main class="flex-1">
         <ActiveFilters :filters="activeFilters" @remove="handleRemoveFilter" />
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-          <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
         </div>
       </main>
     </div>
@@ -140,6 +139,10 @@ const categoryCounts = computed(() => {
   }
   return counts
 })
+
+function onSearchChange(val) { search.value = val }
+function onCategoryChange(val) { selectedCategories.value = val }
+function onSortChange(val) { sort.value = val }
 </script>
 
 <style scoped>
