@@ -1,5 +1,6 @@
 <template>
   <div dir="rtl">
+    
     <Header />
 
     <NuxtPage />
